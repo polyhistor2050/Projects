@@ -1,7 +1,19 @@
 def check_answer(question, answer):
-    if question.lower == answer.lower:
-        print("Correct answer!")
-        marks = marks + 1
+    global marks
+    notAnswered = True
+    attempt = 0
+    while notAnswered and attempt < 1:
+        if question.lower() == answer.lower():
+            print("Correct answer!")
+            marks = marks + 10
+            notAnswered = False
+        else:
+            if attempt < 2:
+                wrong = input("Wrong answer!")
+                attempt = attempt + 1
+    if attempt == 2:
+        print("The correct answer is " + answer)
+
 
 marks = 0
 
@@ -14,7 +26,7 @@ True or false? ")
 check_answer(question1, "false")
 
 question2 = input("What type of file system is usually used for the Linux boot partition? ")
-check_answer(question2, "ext4 || ext3")
+check_answer(question2, "ext")
 
 question3 = input("Which Linux command allows a user to run a specific command or program \
 with superuser/root privileges? ")
@@ -41,3 +53,5 @@ check_answer(question9, "File History")
 
 question10 = input("What is the name of Apple's backup software for macOS? ")
 check_answer(question10, "Time Machine")
+
+print("Your result is " + str(marks) + " out of 100 marks")
