@@ -13,10 +13,16 @@ noun = ["apple", "dinosaur", "ball",
 
 print("Welcome to strong password generator!")
 
-adjectives = random.choice(adjectives)
-noun = random.choice(noun)
-number = random.randrange(0, 100)
-special_char = random.choice(string.punctuation)
+while True:
 
-password = adjectives + noun + str(number) + special_char
-print("Your new password is: %s" % password)
+    adjectives = random.choice(adjectives)
+    noun = random.choice(noun)
+    number = random.randrange(0, 100) 
+    special_char = random.choice(string.punctuation)# 
+
+    password = adjectives + noun + str(number) + special_char
+    print("Your new password is: %s" % password)
+
+    response = input("Would you like another password? Type y or n: ")
+    if response == 'n':
+        break
